@@ -32,4 +32,6 @@ public class Livre {
 
     private String nom;
 
+    private Boolean flag = false;
+
 }
