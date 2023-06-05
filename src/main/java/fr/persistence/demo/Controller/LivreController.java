@@ -14,9 +14,15 @@ public class LivreController {
     @Autowired
     LivreRepository livreRepository;
 
-    @RequestMapping(path = "/livres", method = RequestMethod.GET)
-    public Iterable<Livre> getAllLivres() {
-        return livreRepository.findAll();
+
+    @RequestMapping(path = "/livres/noflag", method = RequestMethod.GET)
+    public Iterable<Livre> getAllLivresNoFlag() {
+        return livreRepository.getAllNoFlagsBooks();
+    }
+
+    @RequestMapping(path = "/livres/flag", method = RequestMethod.GET)
+    public Iterable<Livre> getAllLivresFlag() {
+        return livreRepository.getAllFlagsBooks();
     }
 
     @RequestMapping(path = "/livre", method = RequestMethod.POST)
