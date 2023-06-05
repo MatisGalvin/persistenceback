@@ -5,6 +5,7 @@ import fr.persistence.demo.Repository.EmpruntRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -42,5 +43,10 @@ public class EmpruntController {
             return true;
         }
         return false;
+    }
+
+    @RequestMapping(path = "/emprunts/betweenDates", method = RequestMethod.GET)
+    public Iterable<Emprunt> getAllEmpruntsBetweenDates(@RequestBody Date start, @RequestBody Date end) {
+        return empruntRepository.findAllBetweenDates(start, end);
     }
 }
