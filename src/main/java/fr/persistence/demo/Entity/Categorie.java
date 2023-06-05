@@ -16,4 +16,6 @@ public class Categorie {
     private Long id;
 
     private String nom;
+
+    private Boolean flag = false;
 }
